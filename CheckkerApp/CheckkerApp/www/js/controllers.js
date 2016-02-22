@@ -42,6 +42,7 @@ app.controller('CheckkerCtrl', function ($scope) {
 
         var rolsPos1 = rols.indexOf(chekkerRole1);
         var rolsPos2 = rols.indexOf(chekkerRole2);
+        console.log("rolsPos2: " + rolsPos2);
 
         rolsPos1 += parseInt(meterVolumeInput) + 1;
         console.log("rolsPos1: " + rolsPos1);
