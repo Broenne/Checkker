@@ -31,8 +31,10 @@ The nav bar that will be updated as we navigate between views.
     <label class="item item-input">
         <span class="input-label">MeterNumber</span>
         <input ng-model="meterNumberInput" type="tel">
+        <span class="input-label">MeterVolume</span>
+        <input ng-model="meterVolumeInput" type="tel">
     </label>
-    <button id="check" ng-click="MeterNumberToAscii(meterNumberInput)">Check</button>
+    <button id="check" ng-click="MeterNumberToAscii(meterNumberInput, meterVolumeInput)">Check</button>
 </ion-content>
 
 <!--<ion-nav-bar class="bar-stable">
