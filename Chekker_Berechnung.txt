@@ -1,0 +1,39 @@
+private int[] rols = new int[9] { 1, 3, 5, 7, 9, 2, 4, 6, 8 };
+
+private void btn_check_Click(object sender, EventArgs e)
+        {
+            byte[] meterNoAsAscii = Encoding.ASCII.GetBytes(tbx_MeterNo.Text);
+            int [] meterNoRemainder = new int[meterNoAsAscii.Length];
+            int meterNoSum = 0;
+            for (int i = 0; i < meterNoAsAscii.Length; i++)
+            {
+                meterNoRemainder[i] = meterNoAsAscii[i] % 9;
+                meterNoSum += meterNoRemainder[i] * Convert.ToInt32(Math.Pow(2, i));
+            }
+            // chekkerRole1 is the low part (right)
+            int chekkerRole1 = meterNoSum % 9 + 1;
+
+            meterNoSum = meterNoSum / 11;
+            int chekkerRole2 = meterNoSum % 9 + 1;
+
+            // double ieee = Math.IEEERemainder(5.0, 3.0);
+
+            int rolsPos1 = Array.IndexOf(rols, chekkerRole1);
+            int rolsPos2 = Array.IndexOf(rols, chekkerRole2);
+            
+            rolsPos1 += Convert.ToInt32(this.tbx_MeterVolume.Text) + 1;
+
+            int quotient1 = rolsPos1 / 9;
+            int remainder1 = rolsPos1 % 9;
+
+            chekkerRole1 = rols[remainder1];
+            chekkerRole2 = quotient1 + rolsPos2;
+
+            remainder1 = chekkerRole2 % 9;
+            chekkerRole2 = rols[remainder1] *10;
+
+            int chekkerFinal = chekkerRole1 + chekkerRole2;
+            this.tbx_Chekker.Text = chekkerFinal.ToString();
+
+            // this.tbx_MeterNo.Text = rols chekkerRole1.ToString();
+        }
