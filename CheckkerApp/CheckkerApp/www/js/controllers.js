@@ -56,11 +56,13 @@ app.controller('CheckkerCtrl', function ($scope) {
         chekkerRole2 = quotient1 + rolsPos2;
         console.log("chekkerRole2: " + chekkerRole2);
 
-        remainder1 = chekkerRole2 % 9;
+        remainder1 = chekkerRole2 % 9; // hier ist remainder 0,1111
+        console.log("remainder1: " + remainder1);
         chekkerRole2 = rols[remainder1] * 10;
+        console.log("chekkerRole2: " + chekkerRole2);
 
         var chekkerFinal = chekkerRole1 + chekkerRole2;
+        $scope.result = chekkerFinal;
         console.log("chekkerFinal: " + chekkerFinal);
-
     }
 });
