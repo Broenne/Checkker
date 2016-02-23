@@ -1,7 +1,7 @@
-var app = angular.module('starter.controllers', []);
+var appCtrl = angular.module('starter.controllers', []);
 
 
-app.controller('CheckkerCtrl', function ($scope) {
+appCtrl.controller('CheckkerCtrl', function ($scope) {
 
     $scope.meterNumberInput = "";
 
@@ -11,21 +11,18 @@ app.controller('CheckkerCtrl', function ($scope) {
         // meterNumberInput = "12345678";
         // meterVolumeInput = 0;
         var meterNumberAsAscii = new Array();
-        angular.forEach(meterNumberInput, function (value, key) {
+        window.angular.forEach(meterNumberInput, function (value, key) {
 			// console.log("meter number input:" + key + ': ' + value);
             var ascii = value.charCodeAt(0); // ascii 0 ist dezimal 48, 1=49,...
             meterNumberAsAscii.push(ascii);
         });
-
-		
+        
 		// angular.forEach(meterNumberAsAscii, function (value, key) {
            //  console.log("helper original:" + key + ': ' + value);
         // });
-
-		
-		
+        
         var meterNumberSum = 0;
-        angular.forEach(meterNumberAsAscii, function (value, key) {
+        window.angular.forEach(meterNumberAsAscii, function (value, key) {
             // console.log("as ascii original:" + key + ': ' + value);
             // doing modulo 9
             var modulo9Result = parseInt(value % 9);
