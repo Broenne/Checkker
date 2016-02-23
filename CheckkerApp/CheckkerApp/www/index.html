@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -22,31 +23,39 @@
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
 </head>
-<body ng-app="starter">
-<!--
-The nav bar that will be updated as we navigate between views.
--->
-<ion-content ng-controller="CheckkerCtrl">
-    <!--Build wih Cordova 6-->
-    <label class="item item-input">
-        <span class="input-label">MeterNumber</span>
-        <input ng-model="meterNumberInput" type="tel">
-        <span class="input-label">MeterVolume</span>
-        <input ng-model="meterVolumeInput" type="tel">
-    </label>
-    <button id="check" ng-click="MeterNumberToAscii(meterNumberInput, meterVolumeInput)">Check</button>
-    <span>result: {{result}}</span>
-</ion-content>
 
-<!--<ion-nav-bar class="bar-stable">
-        <ion-nav-back-button>
-        </ion-nav-back-button>
-    </ion-nav-bar>-->
-    <!--
-      The views will be rendered in the <ion-nav-view> directive below
-      Templates are in the /templates folder (but you could also
-      have templates inline in this html file if you'd like).
-    -->
-    <!--<ion-nav-view></ion-nav-view>-->
+<body ng-app="starter">
+   <!--Build wih Cordova 6-->
+    <div class="bar bar-header bar-dark">
+        <h1 class="title">The checkker-app</h1>
+    </div>
+    <ion-content ng-controller="CheckkerCtrl" class="has-header">        
+
+        <div class="list list-inset">
+            <label class="item item-input item-floating-label">
+                <span class="input-label">MeterNumber</span>
+                <input ng-model="meterNumberInput" type="tel" placeholder="meterNumber">
+            </label>
+        <!--</div>
+        <div class="row">-->
+            <label class="item item-input item-floating-label">
+                <span class="input-label">MeterVolume</span>
+                <input ng-model="meterVolumeInput" type="tel" placeholder="MeterVolume">
+            </label>
+        </div>
+
+        <div class="row">
+            <button class="button icon-left ion-ios-calculator button-block" id="check" ng-click="MeterNumberToAscii(meterNumberInput, meterVolumeInput)">
+                Calculate!
+                <!--<i class="icon ion-ios-calculator icon-left"></i>-->
+            </button>
+        </div>
+
+        <div class="row item-content item-floating-label item-output">
+            result: {{result}}
+        </div>
+    </ion-content>
+
 </body>
+
 </html>
