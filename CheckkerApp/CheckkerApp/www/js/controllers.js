@@ -5,22 +5,18 @@ appCtrl.controller('CheckkerCtrl', function ($scope) {
 
     $scope.meterNumberInput = "";
 
+    var checkkerAlgResult = 0.0;
     $scope.MeterNumberToAscii = function (meterNumberInput, meterVolumeInput) {
         
-        // todo mb:
         // meterNumberInput = "12345678";
         // meterVolumeInput = 0;
         var meterNumberAsAscii = new Array();
         window.angular.forEach(meterNumberInput, function (value, key) {
-			// console.log("meter number input:" + key + ': ' + value);
+            // console.log("meter number input:" + key + ': ' + value);
             var ascii = value.charCodeAt(0); // ascii 0 ist dezimal 48, 1=49,...
             meterNumberAsAscii.push(ascii);
         });
-        
-		// angular.forEach(meterNumberAsAscii, function (value, key) {
-           //  console.log("helper original:" + key + ': ' + value);
-        // });
-        
+
         var meterNumberSum = 0;
         window.angular.forEach(meterNumberAsAscii, function (value, key) {
             // console.log("as ascii original:" + key + ': ' + value);
@@ -68,7 +64,17 @@ appCtrl.controller('CheckkerCtrl', function ($scope) {
         // console.log("chekkerRole2: " + chekkerRole2);
 
         var chekkerFinal = chekkerRole1 + chekkerRole2;
+        //checkkerAlgResult = chekkerFinal;
         $scope.result = chekkerFinal;
         console.log("chekkerFinal: " + chekkerFinal);
     }
+
+    $scope.$watch("meterNumberInput", function (newValue, oldValue) {
+        $scope.result = "xxx"; 
+    });
+    
+    // $scope.result = checkkerAlgResult;
+    // $scope.result = chekkerFinal;
+    
+    
 });
